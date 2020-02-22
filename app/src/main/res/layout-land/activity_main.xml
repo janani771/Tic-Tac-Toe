@@ -17,10 +17,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="25sp"
-            android:text="Player 1:0"
+            android:text="Player 1:0 "
             android:layout_alignParentLeft="true"
             android:layout_alignParentStart="true" />
-
 
         <TextView
             android:id="@+id/P2"
@@ -34,7 +33,6 @@
             android:layout_toRightOf="@+id/P1"
             android:text="Player 2:0"
             android:textSize="25sp" />
-
 
 
     </RelativeLayout>
@@ -74,7 +72,7 @@
                     android:textSize="50sp"
                     ></Button>
             </LinearLayout>
-
+        
             <LinearLayout
              android:layout_width="match_parent"
              android:layout_height="0dp"
