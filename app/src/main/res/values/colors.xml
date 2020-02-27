@@ -3,5 +3,6 @@
     <color name="darkPurple">#4A235A</color>
     <color name="colorPrimaryDark">#4A235A</color>
     <color name="colorAccent">#C4C8EE</color>
+    <color name="White">#FFFFFF</color>
 
 </resources>
