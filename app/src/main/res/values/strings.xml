@@ -1,7 +1,8 @@
 <resources>
     <string name="app_name">tictactoe</string>
-    <string name="player1_0">Player1:0</string>
+    <string name="player1">Player1</string>
     <string name="reset">Reset</string>
     <string name="quit">Quit</string>
-    <string name="player2_0">Player2:0</string>
+    <string name="player2">Player2</string>
+    <string name="placeholder">Some dummy content that will be overwritten from code</string>
 </resources>
