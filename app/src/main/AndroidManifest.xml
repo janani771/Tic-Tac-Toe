@@ -10,6 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".DisplayMessageActivity"
+            android:parentActivityName=".Game">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".Game"/>
+        </activity>
+        <activity android:name=".Game"
             android:parentActivityName=".MainActivity">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
