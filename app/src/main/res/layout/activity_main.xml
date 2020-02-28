@@ -27,13 +27,13 @@
 
         <TextView
             android:id="@+id/P2"
-            android:layout_width="wrap_content"
+            android:layout_width="145dp"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
-            android:layout_marginStart="106dp"
-            android:layout_marginLeft="106dp"
+            android:layout_marginStart="156dp"
+            android:layout_marginLeft="156dp"
             android:layout_marginTop="0dp"
             android:layout_marginEnd="8dp"
             android:layout_marginRight="8dp"
@@ -186,6 +186,7 @@
             android:layout_marginRight="10sp"
             android:layout_toEndOf="@+id/reset"
             android:layout_toRightOf="@+id/reset"
+            android:onClick="quit"
             android:text="@string/quit" />
 
     </RelativeLayout>
