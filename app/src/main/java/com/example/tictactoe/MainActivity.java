@@ -10,8 +10,8 @@ import android.widget.EditText;
 
 
 public class MainActivity extends AppCompatActivity {
-    public static final String EXTRA_MESSAGE = "com.example.tictactoe2.MESSAGE";
-    public  static final String EXTRA_MESSAGE2 = "com.example.tictactoe2.MESSAGE2";
+    public static final String EXTRA_MESSAGE = "com.example.tictactoe.MESSAGE";
+    public  static final String EXTRA_MESSAGE2 = "com.example.tictactoe.MESSAGE2";
     public Button instruction;
 
     @Override
@@ -48,5 +48,9 @@ public class MainActivity extends AppCompatActivity {
 
         startActivity(game);
     }
+    public void quit(View view) {
+        Intent quit = new Intent(this, quit.class);
 
+        startActivity(quit);
+    }
 }

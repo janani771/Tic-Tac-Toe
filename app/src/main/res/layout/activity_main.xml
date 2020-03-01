@@ -5,7 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/wall"
-    android:onClick="quit"
     android:orientation="vertical"
     tools:context=".MainActivity">
 
@@ -186,6 +185,7 @@
             android:layout_marginRight="10sp"
             android:layout_toEndOf="@+id/reset"
             android:layout_toRightOf="@+id/reset"
+            android:onClick="quit"
             android:text="@string/quit" />
 
     </RelativeLayout>
