@@ -12,7 +12,7 @@ public class instructions extends AppCompatDialogFragment {
     public Dialog onCreateDialog(Bundle savedInstanceState){
         AlertDialog.Builder instruct = new AlertDialog.Builder(getActivity());
         instruct.setTitle("How to play the game?")
-                .setMessage("Test")
+                .setMessage("-This game is played on a 3X3 grid. \n\n-Player one is always 'X' and Player two is always 'O' by default \n\n-The first player to mark their spaces in a row, either vertically, horizontally, or diagonally is declared the winner. \n\n-If all the nine square are full and no player has three marks in a row, then the game is tied.\n\n")
                 .setPositiveButton("Got it!", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {

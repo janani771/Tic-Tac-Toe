@@ -5,7 +5,7 @@ android {
     buildToolsVersion "29.0.2"
     defaultConfig {
         applicationId "com.example.tictactoe"
-        minSdkVersion 14
+        minSdkVersion 29
         targetSdkVersion 29
         versionCode 1
         versionName "1.0"
@@ -28,4 +28,6 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
     implementation 'androidx.recyclerview:recyclerview:1.1.0'
     implementation 'androidx.gridlayout:gridlayout:1.0.0'
+    implementation 'pl.droidsonroids.gif:android-gif-drawable:1.2.19'
+
 }

@@ -8,14 +8,11 @@
 
     <pl.droidsonroids.gif.GifImageView
         android:id="@+id/gifImageView"
-        android:layout_width="410dp"
-        android:layout_height="101dp"
-        android:layout_marginTop="38dp"
-        android:layout_marginBottom="18dp"
+        android:layout_width="600dp"
+        android:layout_height="121dp"
+        android:layout_marginTop="28dp"
         android:src="@drawable/text"
-        app:layout_constraintBottom_toTopOf="@+id/instruction"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -23,65 +20,63 @@
         android:id="@+id/instruction"
         android:layout_width="131dp"
         android:layout_height="36dp"
-        android:layout_marginBottom="97dp"
         android:text="@string/instructions"
-        app:layout_constraintBottom_toTopOf="@+id/textView"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.483"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/gifImageView" />
 
     <EditText
         android:id="@+id/player1name"
-        android:layout_width="372dp"
-        android:layout_height="61dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="19dp"
+        android:layout_width="432dp"
+        android:layout_height="59dp"
         android:autofillHints=""
         android:ems="10"
         android:hint="@string/player_1"
         android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/player2name"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintHorizontal_bias="0.481"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.445" />
 
     <EditText
         android:id="@+id/player2name"
-        android:layout_width="372dp"
-        android:layout_height="61dp"
-        android:layout_marginBottom="48dp"
+        android:layout_width="436dp"
+        android:layout_height="56dp"
+        android:layout_marginBottom="180dp"
         android:autofillHints=""
         android:ems="10"
         android:hint="@string/player_2"
         android:inputType="textPersonName"
         app:layout_constraintBottom_toTopOf="@+id/play"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.512"
+        app:layout_constraintHorizontal_bias="0.484"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/play"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="116dp"
+        android:layout_marginBottom="16dp"
         android:onClick="play"
         android:text="@string/play"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.529"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="20dp"
         android:fontFamily="casual"
         android:text="@string/enter_the_name_of_players"
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintHorizontal_bias="0.469"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/instruction" />
 </androidx.constraintlayout.widget.ConstraintLayout>
