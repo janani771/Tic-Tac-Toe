@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/wall"
+    android:onClick="quit"
     android:orientation="vertical"
     tools:context=".MainActivity">
 
@@ -55,38 +55,38 @@
         android:orientation="vertical">
 
         <LinearLayout
+            style="?android:attr/buttonBarStyle"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight="1"
-            style="?android:attr/buttonBarStyle"
             android:orientation="horizontal">
 
             <Button
                 android:id="@+id/button_00"
                 style="?android:attr/buttonBarButtonStyle"
-                android:background="@drawable/grid"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:background="@drawable/grid"
                 android:textSize="50sp" />
 
             <Button
                 android:id="@+id/button_01"
                 style="?android:attr/buttonBarButtonStyle"
-                android:background="@drawable/grid"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:background="@drawable/grid"
                 android:textSize="50sp" />
 
             <Button
 
                 android:id="@+id/button_02"
                 style="?android:attr/buttonBarButtonStyle"
-                android:background="@drawable/grid"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:background="@drawable/grid"
                 android:textSize="50sp" />
         </LinearLayout>
 
@@ -99,28 +99,28 @@
             <Button
                 android:id="@+id/button_03"
                 style="?android:attr/buttonBarButtonStyle"
-                android:background="@drawable/grid"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:background="@drawable/grid"
                 android:textSize="50sp" />
 
             <Button
                 android:id="@+id/button_04"
                 style="?android:attr/buttonBarButtonStyle"
-                android:background="@drawable/grid"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:background="@drawable/grid"
                 android:textSize="50sp" />
 
             <Button
                 android:id="@+id/button_05"
                 style="?android:attr/buttonBarButtonStyle"
-                android:background="@drawable/grid"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:background="@drawable/grid"
                 android:textSize="50sp" />
         </LinearLayout>
 
@@ -133,28 +133,28 @@
             <Button
                 android:id="@+id/button_06"
                 style="?android:attr/buttonBarButtonStyle"
-                android:background="@drawable/grid"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:background="@drawable/grid"
                 android:textSize="50sp" />
 
             <Button
                 android:id="@+id/button_07"
                 style="?android:attr/buttonBarButtonStyle"
-                android:background="@drawable/grid"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:background="@drawable/grid"
                 android:textSize="50sp" />
 
             <Button
                 android:id="@+id/button_08"
                 style="?android:attr/buttonBarButtonStyle"
-                android:background="@drawable/grid"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:background="@drawable/grid"
                 android:textSize="50sp" />
         </LinearLayout>
 
@@ -167,10 +167,10 @@
         <Button
             android:id="@+id/reset"
             android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_marginStart="10dp"
             android:layout_marginLeft="10dp"
-            android:layout_height="wrap_content"
             android:layout_marginTop="0dp"
             android:text="@string/reset" />
 
@@ -186,7 +186,6 @@
             android:layout_marginRight="10sp"
             android:layout_toEndOf="@+id/reset"
             android:layout_toRightOf="@+id/reset"
-            android:onClick="quit"
             android:text="@string/quit" />
 
     </RelativeLayout>
