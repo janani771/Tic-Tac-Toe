@@ -13,11 +13,23 @@
         android:layout_height="wrap_content">
 
         <TextView
+            android:id="@+id/score2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="385dp"
+            android:layout_marginTop="0dp"
+            android:fontFamily="casual"
+            android:text="@string/_0"
+            android:textSize="30sp"
+            android:textStyle="bold" />
+
+        <TextView
             android:id="@+id/P1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
-            android:layout_alignParentLeft="true"
             android:text="@string/player1"
             android:textSize="30sp"
             android:textStyle="bold"
@@ -30,19 +42,28 @@
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
-            android:layout_marginStart="156dp"
-            android:layout_marginLeft="156dp"
-            android:layout_marginTop="0dp"
-            android:layout_marginEnd="8dp"
-            android:layout_marginRight="8dp"
+            android:layout_marginStart="131dp"
+            android:layout_marginTop="-1dp"
+            android:layout_marginEnd="33dp"
             android:layout_toEndOf="@+id/P1"
-            android:layout_toRightOf="@+id/P1"
             android:gravity="end"
             android:text="@string/player2"
             android:textSize="30sp"
             android:textStyle="bold"
             app:fontFamily="casual" />
+
+        <TextView
+            android:id="@+id/score1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="124dp"
+            android:layout_marginTop="1dp"
+            android:fontFamily="casual"
+            android:text="@string/_0"
+            android:textSize="30sp"
+            android:textStyle="bold" />
 
 
     </RelativeLayout>
@@ -164,12 +185,11 @@
         android:layout_height="wrap_content">
 
         <Button
-            android:id="@+id/reset"
+            android:id="@+id/resetGame"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_marginStart="10dp"
-            android:layout_marginLeft="10dp"
             android:layout_marginTop="0dp"
             android:text="@string/reset" />
 
@@ -178,13 +198,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
             android:layout_marginStart="220dp"
-            android:layout_marginLeft="220dp"
             android:layout_marginEnd="5sp"
-            android:layout_marginRight="10sp"
-            android:layout_toEndOf="@+id/reset"
-            android:layout_toRightOf="@+id/reset"
+            android:layout_toEndOf="@+id/resetGame"
             android:onClick="quit"
             android:text="@string/quit" />
 

@@ -2,6 +2,7 @@ package com.example.tictactoe;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -11,29 +12,45 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class Game extends AppCompatActivity implements View.OnClickListener {
 
-    private Button[][] buttons = new Button[3][3];
-    private boolean playerOneActive = true;
+    public Button[][] buttons = new Button[3][3];
+    public boolean playerOneActive = true;
     public int numOfCount;
+
     public int player1Score;
     public int player2Score;
+
+    TextView playerOneName;
+    TextView playerTwoName;
+
+    TextView Player1;
+    TextView Player2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        final Button reset = (Button) findViewById(R.id.resetGame);
+        reset.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.d("GAME","reset clicked?" );
+                resetScore();
+                resetGameGrid();
+            }
+        });
+
         Intent intent = getIntent();
         String message = intent.getStringExtra(MainActivity.EXTRA_MESSAGE);
         String message2 = intent.getStringExtra(MainActivity.EXTRA_MESSAGE2);
 
-        TextView playerOneName = findViewById(R.id.P1);
+        playerOneName = findViewById(R.id.P1);
         playerOneName.setText(message + ":   ");
-
-        TextView playerTwoName = findViewById(R.id.P2);
+        playerTwoName = findViewById(R.id.P2);
         playerTwoName.setText(message2 + ":   ");
 
-        TextView Player1 = findViewById(R.id.player1name);
-        TextView Player2 = findViewById(R.id.player2name);
+        Player1 = findViewById(R.id.player1name);
+        Player2  = findViewById(R.id.player2name);
 
         buttons[0][0] = findViewById(R.id.button_00);
         buttons[0][1] = findViewById(R.id.button_01);
@@ -51,14 +68,11 @@ public class Game extends AppCompatActivity implements View.OnClickListener {
             }
         }
     }
-
     public void quit(View view) {
         Intent quit = new Intent(this, quit.class);
 
         startActivity(quit);
     }
-
-
     @Override
     public void onClick(View v) {
         if (!((Button) v).getText().toString().equals("")) {
@@ -71,18 +85,59 @@ public class Game extends AppCompatActivity implements View.OnClickListener {
         }
 
         numOfCount++;
+        if (win()) {
+            if (playerOneActive) {
+                playerOne_winner();
+            }else{
+                playerTwo_winner();
+            }
+            } else if(numOfCount==9){
+                gameIsDraw();
+            }else{
+                playerOneActive = !playerOneActive;
+            }
+        }
+    public void playerOne_winner(){
+        player1Score++;
+        //Toast.makeText(this,"Player 1 wins!", Toast.LENGTH_LONG).show();
+        updateScore();
+        resetGameGrid();
 
-//        if (win()) {
-//            if (playerOneActive) {
-//                //playerOne_winner();
-//            } else {
-//                //playerTwo_winner();
-//            }
-//        } else if (numOfCount == 9) {
-//           // gameIsDraw();
-//        } else {
-//            playerOneActive = !playerOneActive;
-//        }
+    }
+    public void playerTwo_winner(){
+        player2Score++;
+        //Toast.makeText(this,"Player 2 wins!", Toast.LENGTH_LONG).show();
+        updateScore();
+        resetGameGrid();
+    }
+    public void gameIsDraw(){
+        Toast.makeText(this,"Its a draw!", Toast.LENGTH_LONG).show();
+        resetGameGrid();
+    }
+    public void updateScore(){
+        TextView score1;
+        TextView score2;
+        score1 = (TextView) findViewById(R.id.score1);
+        score2 = (TextView) findViewById(R.id.score2);
+        score1.setText(Integer.toString(player1Score));
+        score2.setText(Integer.toString(player2Score));
+    }
+    public void resetGameGrid(){
+        for(int x = 0; x < 3; x++){
+            for(int y = 0; y <3; y++){
+                buttons[x][y].setText("");
+            }
+        }
+        numOfCount = 0;
+        playerOneActive = true;
+    }
+    public void resetScore(){
+        TextView score1;
+        TextView score2;
+        score1 = (TextView) findViewById(R.id.score1);
+        score2 = (TextView) findViewById(R.id.score2);
+        score1.setText("0");
+        score2.setText("0");
     }
 
     private boolean win() {
@@ -93,14 +148,14 @@ public class Game extends AppCompatActivity implements View.OnClickListener {
             }
         }
         //button_00 diagonal win//
-        if (position[0][0].equals(position[0][4])
-                && position[0][0].equals(position[0][8])
+        if (position[0][0].equals(position[1][1])
+                && position[0][0].equals(position[2][2])
                 && !position[0][0].equals("")) {
             return true;
         }
         //button_00 vertical win//
-        else if (position[0][0].equals(position[0][3])
-                && position[0][0].equals(position[0][6])
+        else if (position[0][0].equals(position[1][0])
+                && position[0][0].equals(position[2][0])
                 && !position[0][0].equals("")) {
             return true;
         }
@@ -111,8 +166,8 @@ public class Game extends AppCompatActivity implements View.OnClickListener {
             return true;
         }
         //button_01 vertical win//
-        if (position[0][1].equals(position[0][4])
-                && position[0][1].equals(position[0][7])
+        if (position[0][1].equals(position[1][1])
+                && position[0][1].equals(position[2][1])
                 && !position[0][1].equals("")) {
             return true;
         }
@@ -238,23 +293,6 @@ public class Game extends AppCompatActivity implements View.OnClickListener {
         }
         return false;
     }
-    /*private void playerOne_winner(){
-        player1Score++;
-        Toast.makeText(this,"Player 1 Wins!",Toast.LENGTH_SHORT.show();
-        updatePointsText();
-        resetBoard();)
-    }
-    private void playerTwo_winner(){
-        player2Score++;
-        Toast.makeText(this,"Player 2 Wins!",Toast.LENGTH_SHORT.show();
-        updatePointsText();
-        resetBoard();)
-    }
-    private void gameIsDraw(){
-        Toast.makeText(this,"Game is Draw",Toast.LENGTH_LONG.show();
-        updatePointsText();
-        resetBoard();)
-    }*/
 
 }
 

@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">tictactoe</string>
+    <string name="app_name">tictactoe2</string>
     <string name="player1">Player 1</string>
     <string name="reset">Reset</string>
     <string name="quit">Quit</string>
@@ -13,4 +13,5 @@
     <string name="player_2">Player 2</string>
     <string name="play">PLAY</string>
     <string name="enter_the_name_of_players">Enter the name of Players</string>
+    <string name="_0">0</string>
 </resources>
