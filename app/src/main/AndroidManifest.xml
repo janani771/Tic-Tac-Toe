@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-        <activity android:name=".quit"
+        <activity android:name=".Quit"
             android:parentActivityName=".Game">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"

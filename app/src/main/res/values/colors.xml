@@ -2,7 +2,7 @@
 <resources>
     <color name="darkPurple">#4A235A</color>
     <color name="colorPrimaryDark">#4A235A</color>
-    <color name="colorAccent">#C4C8EE</color>
+    <color name="colorAccent">#4A235A</color>
     <color name="White">#FFFFFF</color>
     <color name="veryLightPurple">#EDEEF9</color>
 

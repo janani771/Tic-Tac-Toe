@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -12,30 +13,39 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class Game extends AppCompatActivity implements View.OnClickListener {
 
-    public Button[][] buttons = new Button[3][3];
-    public boolean playerOneActive = true;
-    public int numOfCount;
+    private Button[][] buttons = new Button[3][3];
+    private boolean playerOneActive = true;
+    private int numOfCount;
 
-    public int player1Score;
-    public int player2Score;
+    //user input text//
+    private EditText playerOneName;
+    private EditText playerTwoName;
 
-    TextView playerOneName;
-    TextView playerTwoName;
+    //default text//
+    private TextView p1;
+    private TextView p2;
 
-    TextView Player1;
-    TextView Player2;
+    //score that has text of zero//
+    private TextView score1;
+    private TextView score2;
+
+    //defines the score class//
+    private Scores scores;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        scores = new Scores(this);
+
         final Button reset = (Button) findViewById(R.id.resetGame);
         reset.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Log.d("GAME","reset clicked?" );
-                resetScore();
+                scores.resetScore();
+                updateScore();
                 resetGameGrid();
             }
         });
@@ -44,13 +54,26 @@ public class Game extends AppCompatActivity implements View.OnClickListener {
         String message = intent.getStringExtra(MainActivity.EXTRA_MESSAGE);
         String message2 = intent.getStringExtra(MainActivity.EXTRA_MESSAGE2);
 
-        playerOneName = findViewById(R.id.P1);
-        playerOneName.setText(message + ":   ");
-        playerTwoName = findViewById(R.id.P2);
-        playerTwoName.setText(message2 + ":   ");
+        //User input//
+        p1 = findViewById(R.id.P1);
 
-        Player1 = findViewById(R.id.player1name);
-        Player2  = findViewById(R.id.player2name);
+        p2 = findViewById(R.id.P2);
+
+
+        //Text to replace in game//
+        playerOneName = findViewById(R.id.player1name);
+//        if(playerOneName.equals(null)){
+//            p1.setText("Player 1:");
+//        }else{
+            p1.setText(message + ":");
+
+//        }
+//        if(playerTwoName.equals(null)){
+//            p2.setText("Player 2:");
+//        }else{
+            p2.setText(message2 + ":");
+
+        //}
 
         buttons[0][0] = findViewById(R.id.button_00);
         buttons[0][1] = findViewById(R.id.button_01);
@@ -68,9 +91,8 @@ public class Game extends AppCompatActivity implements View.OnClickListener {
             }
         }
     }
-    public void quit(View view) {
-        Intent quit = new Intent(this, quit.class);
-
+    public void quit(View view){
+        Intent quit = new Intent(this, Quit.class);
         startActivity(quit);
     }
     @Override
@@ -87,58 +109,45 @@ public class Game extends AppCompatActivity implements View.OnClickListener {
         numOfCount++;
         if (win()) {
             if (playerOneActive) {
-                playerOne_winner();
+                scores.playerWins(1);
+                updateScore();
+                resetGameGrid();
             }else{
-                playerTwo_winner();
+                scores.playerWins(2);
+                updateScore();
+                resetGameGrid();
             }
             } else if(numOfCount==9){
                 gameIsDraw();
+                resetGameGrid();
             }else{
                 playerOneActive = !playerOneActive;
             }
         }
-    public void playerOne_winner(){
-        player1Score++;
-        //Toast.makeText(this,"Player 1 wins!", Toast.LENGTH_LONG).show();
-        updateScore();
-        resetGameGrid();
+        private void updateScore(){
+            score1=(TextView) findViewById(R.id.score1);
+            score1.setText(Integer.toString(scores.getPlayer1Score()));
 
-    }
-    public void playerTwo_winner(){
-        player2Score++;
-        //Toast.makeText(this,"Player 2 wins!", Toast.LENGTH_LONG).show();
-        updateScore();
-        resetGameGrid();
-    }
-    public void gameIsDraw(){
-        Toast.makeText(this,"Its a draw!", Toast.LENGTH_LONG).show();
-        resetGameGrid();
-    }
-    public void updateScore(){
-        TextView score1;
-        TextView score2;
-        score1 = (TextView) findViewById(R.id.score1);
-        score2 = (TextView) findViewById(R.id.score2);
-        score1.setText(Integer.toString(player1Score));
-        score2.setText(Integer.toString(player2Score));
-    }
-    public void resetGameGrid(){
-        for(int x = 0; x < 3; x++){
-            for(int y = 0; y <3; y++){
-                buttons[x][y].setText("");
-            }
+            score2=(TextView) findViewById(R.id.score2);
+            score2.setText(Integer.toString(scores.getPlayer2Score()));
         }
-        numOfCount = 0;
-        playerOneActive = true;
+
+        private void gameIsDraw(){
+            Toast.makeText(this,"It's a draw!", Toast.LENGTH_LONG).show();
+            resetGameGrid();
+        }
+
+        public void resetGameGrid(){
+            for(int x = 0; x < 3; x++){
+                for(int y = 0; y <3; y++){
+                    buttons[x][y].setText("");
+                }
+            }
+            numOfCount = 0;
+            playerOneActive = true;
     }
-    public void resetScore(){
-        TextView score1;
-        TextView score2;
-        score1 = (TextView) findViewById(R.id.score1);
-        score2 = (TextView) findViewById(R.id.score2);
-        score1.setText("0");
-        score2.setText("0");
-    }
+
+
 
     private boolean win() {
         String[][] position = new String[3][3];

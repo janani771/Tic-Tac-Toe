@@ -12,12 +12,14 @@ import android.widget.EditText;
 public class MainActivity extends AppCompatActivity {
     public static final String EXTRA_MESSAGE = "com.example.tictactoe2.MESSAGE";
     public  static final String EXTRA_MESSAGE2 = "com.example.tictactoe2.MESSAGE2";
-    public Button instruction;
+    private Button instruction;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.tutorial);
+
+        Intent intent = getIntent();
 
         instruction = (Button) findViewById(R.id.instruction);
         instruction.setOnClickListener(new View.OnClickListener() {
@@ -29,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void instruction() {
-        instructions instruct = new instructions();
+        Instructions instruct = new Instructions();
         instruct.show(getSupportFragmentManager(), "instructions");
     }
 
@@ -45,13 +47,12 @@ public class MainActivity extends AppCompatActivity {
         game.putExtra(EXTRA_MESSAGE, message);
         game.putExtra(EXTRA_MESSAGE2, message2);
 
-
         startActivity(game);
     }
     public void quit(View view) {
-        Intent quit = new Intent(this, quit.class);
-
-        startActivity(quit);
+        Intent intent = new Intent(this, Quit.class);
+        startActivity(intent);
     }
+
 
 }

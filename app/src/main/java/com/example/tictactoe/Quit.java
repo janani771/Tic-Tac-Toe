@@ -5,7 +5,7 @@ import android.os.Bundle;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class quit extends AppCompatActivity {
+public class Quit extends AppCompatActivity {
     @Override
     protected void onCreate( Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -14,4 +14,6 @@ public class quit extends AppCompatActivity {
         Intent intent = getIntent();
 
     }
+
+
 }
