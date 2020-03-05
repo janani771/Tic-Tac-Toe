@@ -156,148 +156,58 @@ public class Game extends AppCompatActivity implements View.OnClickListener {
                 position[i][j] = buttons[i][j].getText().toString();
             }
         }
-        //button_00 diagonal win//
-        if (position[0][0].equals(position[1][1])
-                && position[0][0].equals(position[2][2])
-                && !position[0][0].equals("")) {
-            return true;
-        }
-        //button_00 vertical win//
-        else if (position[0][0].equals(position[1][0])
+        //CHECKING FOR WIN VERTICALLY(UP-DOWN)//
+        //first column//
+         if (position[0][0].equals(position[1][0])
                 && position[0][0].equals(position[2][0])
                 && !position[0][0].equals("")) {
             return true;
         }
-        //button_00 horizontal win//
-        else if (position[0][0].equals(position[0][1])
-                && position[0][0].equals(position[0][2])
-                && !position[0][0].equals("")) {
-            return true;
-        }
-        //button_01 vertical win//
+        //second column//
         if (position[0][1].equals(position[1][1])
                 && position[0][1].equals(position[2][1])
                 && !position[0][1].equals("")) {
             return true;
         }
-        //button_01 horizontal win//
-        else if (position[0][1].equals(position[0][0])
-                && position[0][1].equals(position[0][2])
-                && !position[0][1].equals("")) {
-            return true;
-        }
-        //button_02 vertical win//
+        //third column//
         if (position[0][2].equals(position[1][2])
                 && position[0][2].equals(position[2][2])
                 && !position[0][2].equals("")) {
             return true;
         }
-        //button_02 horizontal win//
-        else if (position[0][2].equals(position[0][0])
-                && position[0][2].equals(position[0][1])
-                && !position[0][2].equals("")) {
+
+        //CHECKING FOR WIN HORIZONTALLY(LEFT-RIGHT)//
+        //first row//
+        if (position[0][0].equals(position[0][1])
+                && position[0][0].equals(position[0][2])
+                && !position[0][0].equals("")) {
             return true;
         }
-        //button_02 diagonal win//
-        else if (position[0][2].equals(position[1][1])
-                && position[0][2].equals(position[2][0])
-                && !position[0][2].equals("")) {
-            return true;
-        }
-        //button_03 vertical win//
-        if (position[1][0].equals(position[0][0])
-                && position[1][0].equals(position[2][0])
-                && !position[1][0].equals("")) {
-            return true;
-        }
-        //button_03 horizontal win//
-        else if (position[1][0].equals(position[1][1])
+        //second row//
+        if (position[1][0].equals(position[1][1])
                 && position[1][0].equals(position[1][2])
                 && !position[1][0].equals("")) {
             return true;
         }
-        //button_04 vertical win//
-        if (position[1][1].equals(position[1][0])
-                && position[1][1].equals(position[1][2])
-                && !position[1][1].equals("")) {
-            return true;
-        }
-        //button_04 horizontal win//
-        else if (position[1][1].equals(position[0][1])
-                && position[1][1].equals(position[2][1])
-                && !position[1][1].equals("")) {
-            return true;
-        }
-        //button_04 diagonal win//
-        else if (position[1][1].equals(position[0][2])
-                && position[1][1].equals(position[2][0])
-                && !position[1][1].equals("")) {
-            return true;
-        }
-        //button_04 diagonal2 win//
-        else if (position[1][1].equals(position[0][0])
-                && position[1][1].equals(position[2][2])
-                && !position[1][1].equals("")) {
-            return true;
-        }
-        //button_05 vertical win//
-        if (position[1][2].equals(position[1][0])
-                && position[1][2].equals(position[1][1])
-                && !position[1][2].equals("")) {
-            return true;
-        }
-        //button_05 horizontal win//
-        else if (position[1][2].equals(position[0][2])
-                && position[1][2].equals(position[2][2])
-                && !position[1][2].equals("")) {
-            return true;
-        } //button_06 diagonal win//
-        if (position[2][0].equals(position[1][1])
-                && position[2][0].equals(position[0][2])
-                && !position[2][0].equals("")) {
-            return true;
-        }
-        //button_06 vertical win//
-        else if (position[2][0].equals(position[0][0])
-                && position[2][0].equals(position[1][0])
-                && !position[2][0].equals("")) {
-            return true;
-        }
-        //button_06 horizontal win//
+        //third row//
         else if (position[2][0].equals(position[2][1])
                 && position[2][0].equals(position[2][2])
                 && !position[2][0].equals("")) {
             return true;
         }
 
-        //button_07 vertical win//
-        if (position[2][1].equals(position[0][1])
-                && position[2][1].equals(position[1][1])
-                && !position[2][1].equals("")) {
+        //CHECKING FOR WIN DIAGONALLY//
+        //first diagonal (left to right)//
+
+        if (position[0][0].equals(position[1][1])
+                && position[0][0].equals(position[2][2])
+                && !position[0][0].equals("")) {
             return true;
         }
-        //button_07 horizontal win//
-        else if (position[2][1].equals(position[2][0])
-                && position[2][1].equals(position[2][2])
-                && !position[2][1].equals("")) {
-            return true;
-        }
-        //button_08 vertical win//
-        if (position[2][2].equals(position[1][2])
-                && position[2][2].equals(position[0][2])
-                && !position[2][2].equals("")) {
-            return true;
-        }
-        //button_08 horizontal win//
-        else if (position[2][2].equals(position[2][0])
-                && position[2][2].equals(position[2][1])
-                && !position[2][2].equals("")) {
-            return true;
-        }
-        //button_08 diagonal win//
-        else if (position[2][2].equals(position[1][1])
-                && position[2][2].equals(position[0][0])
-                && !position[2][2].equals("")) {
+        //second diagonal (right to left)//
+        else if (position[0][2].equals(position[1][1])
+                && position[0][2].equals(position[2][0])
+                && !position[0][2].equals("")) {
             return true;
         }
         return false;
