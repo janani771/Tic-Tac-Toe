@@ -13,4 +13,5 @@
     <string name="play">PLAY</string>
     <string name="enter_the_name_of_players">Enter the name of Players</string>
     <string name="_0">0</string>
+    <string name="total_score">Total Score:</string>
 </resources>
