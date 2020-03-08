@@ -15,10 +15,11 @@ public class MainActivity extends AppCompatActivity {
     public static final String EXTRA_USER_POS = "pos_in_list";
     private Button instruction;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.tutorial);
+        setContentView(R.layout.activity_main);
 
         Intent intent = getIntent();
 
@@ -30,7 +31,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
-
     public void instruction() {
         Instructions instruct = new Instructions();
         instruct.show(getSupportFragmentManager(), "instructions");
@@ -44,6 +44,7 @@ public class MainActivity extends AppCompatActivity {
 
         String message = nameOne.getText().toString();
         String message2 = nameTwo.getText().toString();
+
 
         game.putExtra(EXTRA_MESSAGE, message);
         game.putExtra(EXTRA_MESSAGE2, message2);

@@ -32,8 +32,6 @@
             </intent-filter>
         </activity>
         <activity android:name=".Display_Scores" />
-
-
     </application>
 
 </manifest>

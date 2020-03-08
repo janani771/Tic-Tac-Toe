@@ -2,6 +2,7 @@ package com.example.tictactoe;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -31,11 +32,10 @@ public class Game extends AppCompatActivity implements View.OnClickListener {
 
     //defines the score class//
     private Scores scores;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.game);
 
         scores = new Scores(this);
 
@@ -49,31 +49,24 @@ public class Game extends AppCompatActivity implements View.OnClickListener {
                 resetGameGrid();
             }
         });
-
         Intent intent = getIntent();
         String message = intent.getStringExtra(MainActivity.EXTRA_MESSAGE);
         String message2 = intent.getStringExtra(MainActivity.EXTRA_MESSAGE2);
 
         //User input//
         p1 = findViewById(R.id.P1);
-
         p2 = findViewById(R.id.P2);
 
-
-        //Text to replace in game//
-        playerOneName = findViewById(R.id.player1name);
-//        if(playerOneName.equals(null)){
-//            p1.setText("Player 1:");
-//        }else{
-            p1.setText(message + ":");
-
-//        }
-//        if(playerTwoName.equals(null)){
-//            p2.setText("Player 2:");
-//        }else{
-            p2.setText(message2 + ":");
-
-        //}
+        if(TextUtils.isEmpty(message) || message.equals("Player 2")|| message.equals("player 2") || message.equals("player2")||message.equals("Player Two") ||message.equals("Player two") ||message.equals("player two") ||message.equals("PLAYER TWO")||message.equals("playertwo")||message.equals("PLAYER two")){
+            p1.setText("Player 1:");
+        }else{
+            p1.setText(message +":");
+        }
+        if(TextUtils.isEmpty(message2) || message2.equals("Player 1") || message2.equals("player 1") || message2.equals("player2")||message2.equals("Player One") ||message2.equals("Player one") ||message2.equals("player one") ||message2.equals("PLAYER ONE")||message2.equals("playerone")||message2.equals("PLAYER one") ){
+            p2.setText("Player 2:");
+        }else{
+            p2.setText(message2 +":");
+        }
 
         buttons[0][0] = findViewById(R.id.button_00);
         buttons[0][1] = findViewById(R.id.button_01);
@@ -101,8 +94,10 @@ public class Game extends AppCompatActivity implements View.OnClickListener {
             return;
         }
         if (playerOneActive) {
+            p1.requestFocus();
             ((Button) v).setText("X");
         } else {
+            p2.requestFocus();
             ((Button) v).setText("O");
         }
 
@@ -110,10 +105,12 @@ public class Game extends AppCompatActivity implements View.OnClickListener {
         if (win()) {
             if (playerOneActive) {
                 scores.playerWins(1);
+                Toast.makeText(this,"PLAYER 1 WINS", Toast.LENGTH_LONG).show();
                 updateScore();
                 resetGameGrid();
             }else{
                 scores.playerWins(2);
+                Toast.makeText(this,"PLAYER 2 WINS", Toast.LENGTH_LONG).show();
                 updateScore();
                 resetGameGrid();
             }
@@ -146,9 +143,6 @@ public class Game extends AppCompatActivity implements View.OnClickListener {
             numOfCount = 0;
             playerOneActive = true;
     }
-
-
-
     private boolean win() {
         String[][] position = new String[3][3];
         for (int i = 0; i < 3; i++) {

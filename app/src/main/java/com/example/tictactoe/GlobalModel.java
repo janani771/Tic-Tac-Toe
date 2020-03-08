@@ -14,7 +14,8 @@ public class GlobalModel {
 
     private GlobalModel() {
         GlobalModel = new ArrayList<>(Arrays.asList(
-                new Players("Scores of Player One and Two every round", 0)));
+                new Players("Scores of Player One " +
+                        "and Two every round", 0)));
     }
     public List<Players> getPlayer(){
         return GlobalModel;
