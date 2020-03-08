@@ -202,5 +202,30 @@
             android:onClick="quit"
             android:text="@string/quit" />
 
+        <Button
+            android:id="@+id/playMusic"
+            android:layout_width="60dp"
+            android:layout_height="49dp"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="120dp"
+            android:layout_marginTop="-2dp"
+            android:background="@drawable/speaker"
+            android:backgroundTint="#000000"
+            android:onClick="playIT" />
+
+        <Button
+            android:id="@+id/mute"
+            android:layout_width="61dp"
+            android:layout_height="50dp"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="220dp"
+            android:layout_marginTop="-2dp"
+            android:background="@drawable/mute"
+            android:backgroundTint="#000000"
+            android:onClick="mute" />
+
+
+
+
     </RelativeLayout>
 </LinearLayout>
