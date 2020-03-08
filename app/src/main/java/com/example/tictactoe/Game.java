@@ -1,6 +1,7 @@
 package com.example.tictactoe;
 
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
@@ -17,6 +18,7 @@ public class Game extends AppCompatActivity implements View.OnClickListener {
     private Button[][] buttons = new Button[3][3];
     private boolean playerOneActive = true;
     private int numOfCount;
+    MediaPlayer myTune;
 
     //user input text//
     private EditText playerOneName;
@@ -36,6 +38,7 @@ public class Game extends AppCompatActivity implements View.OnClickListener {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.game);
+        myTune = MediaPlayer.create(this,R.raw.sample);
 
         scores = new Scores(this);
 
@@ -83,6 +86,27 @@ public class Game extends AppCompatActivity implements View.OnClickListener {
                 buttons[x][y].setOnClickListener(this);
             }
         }
+    }
+    public void playIT(View view){
+        myTune.start();
+        myTune.setLooping(true);
+        myTune.setVolume(5000f,5000f);
+    }
+    public void mute(View view){
+        if(myTune!=null){
+            myTune.pause();
+        }
+    }
+    @Override
+    protected void onPause(){
+        super.onPause();
+        myTune.release();
+    }
+    @Override
+    protected void onStop(){
+        super.onStop();
+        myTune.release();
+        myTune=null;
     }
     public void quit(View view){
         Intent quit = new Intent(this, Quit.class);
