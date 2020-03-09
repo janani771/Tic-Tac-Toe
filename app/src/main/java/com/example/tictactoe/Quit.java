@@ -40,6 +40,7 @@ public class Quit extends AppCompatActivity {
                 startActivity(playerActivity);
             }
         });
+
     }
 
 }

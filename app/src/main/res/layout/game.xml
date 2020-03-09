@@ -96,7 +96,7 @@
                 android:layout_weight="1"
                 android:background="@drawable/grid"
                 android:textSize="50sp" />
-
+x
             <Button
 
                 android:id="@+id/button_02"
