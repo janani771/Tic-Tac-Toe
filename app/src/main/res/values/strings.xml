@@ -14,10 +14,14 @@
     <string name="enter_the_name_of_players">Enter the name of Players</string>
     <string name="_0">0</string>
     <string name="total_score">Total Score:</string>
-    <string name="player_2">Player 2</string>
     <string name="quick_video">Quick Video</string>
     <string name="player_1_char_limit_10">Player 1 (char limit: 10)</string>
     <string name="exit">exit</string>
+    <string name="colon1">:</string>
+    <string name="colon2">:</string>
+    <string name="player_2">Player 2</string>
+    <string name="Player_1">\" Player 1\"</string>
+    <string name="Player_2">\" Player 2\"</string>
 
 
 </resources>

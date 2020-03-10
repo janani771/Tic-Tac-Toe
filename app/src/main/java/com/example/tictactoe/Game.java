@@ -1,10 +1,13 @@
 package com.example.tictactoe;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.graphics.Color;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -12,6 +15,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import java.util.Random;
 
 public class Game extends AppCompatActivity implements View.OnClickListener {
 
@@ -31,6 +36,8 @@ public class Game extends AppCompatActivity implements View.OnClickListener {
     //score that has text of zero//
     private TextView score1;
     private TextView score2;
+
+    Toast toast;
 
     //defines the score class//
     private Scores scores;
@@ -61,14 +68,14 @@ public class Game extends AppCompatActivity implements View.OnClickListener {
         p2 = findViewById(R.id.P2);
 
         if(TextUtils.isEmpty(message) || message.equals("Player 2")|| message.equals("player 2") || message.equals("player2")||message.equals("Player Two") ||message.equals("Player two") ||message.equals("player two") ||message.equals("PLAYER TWO")||message.equals("playertwo")||message.equals("PLAYER two")){
-            p1.setText("Player 1:");
+            p1.setText(R.string.Player_1);
         }else{
-            p1.setText(message +":");
+            p1.setText( message);
         }
         if(TextUtils.isEmpty(message2) || message2.equals("Player 1") || message2.equals("player 1") || message2.equals("player2")||message2.equals("Player One") ||message2.equals("Player one") ||message2.equals("player one") ||message2.equals("PLAYER ONE")||message2.equals("playerone")||message2.equals("PLAYER one") ){
-            p2.setText("Player 2:");
+            p2.setText(R.string.Player_2);
         }else{
-            p2.setText(message2 +":");
+            p2.setText( message2);
         }
 
         buttons[0][0] = findViewById(R.id.button_00);
@@ -127,17 +134,25 @@ public class Game extends AppCompatActivity implements View.OnClickListener {
             p2.requestFocus();
             ((Button) v).setText("O");
         }
-
         numOfCount++;
         if (win()) {
+             String[] randWinMess = new String[] {"Great work", "Keep it up","You got it",
+                                            "Share you trick","Good job","Congratulations",
+                                            "Great thinking","Awesome","Spectacular","Wonderful", "Nice move"};
             if (playerOneActive) {
                 scores.playerWins(1);
-                Toast.makeText(this,"PLAYER 1 WINS", Toast.LENGTH_LONG).show();
+                String name1 = p1.getText().toString().trim();
+                 toast =Toast.makeText(getApplicationContext(),randWinMess
+                        [new Random().nextInt(randWinMess.length-1)]+", " + name1 + "!",Toast.LENGTH_SHORT);
+                 toastLook();
                 updateScore();
                 resetGameGrid();
             }else{
                 scores.playerWins(2);
-                Toast.makeText(this,"PLAYER 2 WINS", Toast.LENGTH_LONG).show();
+                String name2 = p2.getText().toString().trim();
+                toast = Toast.makeText(getApplicationContext(),randWinMess
+                        [new Random().nextInt(randWinMess.length-1)]+", " + name2+ "!",Toast.LENGTH_SHORT);
+                toastLook();
                 updateScore();
                 resetGameGrid();
             }
@@ -148,20 +163,26 @@ public class Game extends AppCompatActivity implements View.OnClickListener {
                 playerOneActive = !playerOneActive;
             }
         }
-        private void updateScore(){
-            score1=(TextView) findViewById(R.id.score1);
-            score1.setText(Integer.toString(scores.getPlayer1Score()));
-
-            score2=(TextView) findViewById(R.id.score2);
-            score2.setText(Integer.toString(scores.getPlayer2Score()));
-        }
-
         private void gameIsDraw(){
-            Toast.makeText(this,"It's a draw!", Toast.LENGTH_LONG).show();
+            toast = Toast.makeText(this,"It's a draw!", Toast.LENGTH_SHORT);
+            toastLook();
             resetGameGrid();
         }
+        private void toastLook(){
+            View view = toast.getView();
+            view.setBackgroundColor(Color.MAGENTA);
+            toast.setGravity(Gravity.CENTER_HORIZONTAL,0,0);
+            toast.show();
+         }
+         private void updateScore(){
+        score1=(TextView) findViewById(R.id.score1);
+        score1.setText(Integer.toString(scores.getPlayer1Score()));
 
-        public void resetGameGrid(){
+        score2=(TextView) findViewById(R.id.score2);
+        score2.setText(Integer.toString(scores.getPlayer2Score()));
+    }
+
+    public void resetGameGrid(){
             for(int x = 0; x < 3; x++){
                 for(int y = 0; y <3; y++){
                     buttons[x][y].setText("");

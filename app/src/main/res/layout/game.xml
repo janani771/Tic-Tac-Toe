@@ -13,30 +13,60 @@
         android:layout_height="wrap_content">
 
         <TextView
+            android:id="@+id/colon1"
+            android:layout_width="wrap_content"
+            android:layout_height="46dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="162dp"
+            android:layout_marginTop="-14dp"
+            android:fontFamily="casual"
+            android:text="@string/colon1"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textSize="30sp"
+            android:textStyle="bold" />
+
+
+        <TextView
+            android:id="@+id/colon2"
+            android:layout_width="wrap_content"
+            android:layout_height="46dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginStart="368dp"
+            android:layout_marginTop="-14dp"
+            android:fontFamily="casual"
+            android:text="@string/colon2"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textSize="30sp"
+            android:textStyle="bold" />
+
+        <TextView
             android:id="@+id/P2"
             android:layout_width="160dp"
             android:layout_height="43dp"
             android:layout_alignParentStart="true"
-            android:layout_marginStart="220dp"
+            android:layout_marginStart="208dp"
             android:layout_marginBottom="3dp"
             android:text="@string/player_2"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
             android:textSize="24sp"
             android:textStyle="bold"
             app:fontFamily="casual" />
 
         <TextView
             android:id="@+id/score2"
-            android:layout_width="wrap_content"
+            android:layout_width="36dp"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
-            android:layout_marginStart="382dp"
+            android:layout_marginStart="375dp"
             android:layout_marginTop="0dp"
             android:fontFamily="casual"
             android:text="@string/_0"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
             android:textSize="24sp"
             android:textStyle="bold" />
-
 
         <TextView
             android:id="@+id/P1"
@@ -45,21 +75,24 @@
             android:layout_alignParentStart="true"
             android:layout_marginStart="1dp"
             android:layout_marginBottom="3dp"
-            android:text="@string/player1"
+            android:fontFamily="sans-serif-black"
+            android:text="@string/player_1"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
             android:textSize="24sp"
             android:textStyle="bold"
             app:fontFamily="casual" />
 
         <TextView
             android:id="@+id/score1"
-            android:layout_width="wrap_content"
-            android:layout_height="41dp"
+            android:layout_width="38dp"
+            android:layout_height="46dp"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
-            android:layout_marginStart="161dp"
-            android:layout_marginTop="-1dp"
+            android:layout_marginStart="169dp"
+            android:layout_marginTop="-4dp"
             android:fontFamily="casual"
             android:text="@string/_0"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
             android:textSize="24sp"
             android:textStyle="bold" />
 
@@ -70,7 +103,11 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:paddingTop="45dp"
+        android:paddingBottom="45dp"
+        android:paddingRight="20dp"
+        android:paddingLeft="20dp">
 
         <LinearLayout
             style="?android:attr/buttonBarStyle"
@@ -180,7 +217,8 @@ x
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        >
 
         <Button
             android:id="@+id/resetGame"
@@ -189,7 +227,6 @@ x
             android:layout_alignParentTop="true"
             android:layout_marginStart="10dp"
             android:layout_marginTop="-2dp"
-            android:onClick="reset"
             android:text="@string/reset" />
 
         <Button
@@ -205,26 +242,24 @@ x
 
         <Button
             android:id="@+id/playMusic"
-            android:layout_width="60dp"
-            android:layout_height="49dp"
+            android:layout_width="42dp"
+            android:layout_height="35dp"
             android:layout_alignParentTop="true"
             android:layout_marginStart="120dp"
-            android:layout_marginTop="-2dp"
+            android:layout_marginTop="4dp"
             android:background="@drawable/speaker"
-            android:onClick="playIT"
-            />
+            android:onClick="playIT" />
 
         <Button
             android:id="@+id/mute"
-            android:layout_width="61dp"
-            android:layout_height="50dp"
+            android:layout_width="42dp"
+            android:layout_height="35dp"
             android:layout_alignParentTop="true"
             android:layout_marginStart="220dp"
-            android:layout_marginTop="-2dp"
+            android:layout_marginTop="5dp"
             android:background="@drawable/mute"
+            android:backgroundTintMode="screen"
             android:onClick="mute" />
-
-
 
 
     </RelativeLayout>
