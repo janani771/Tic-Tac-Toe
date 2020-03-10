@@ -105,6 +105,9 @@ public class Game extends AppCompatActivity implements View.OnClickListener {
     @Override
     protected void onStop(){
         super.onStop();
+        Log.d("GAME","Data cleared!");
+        scores.resetScore();
+        resetGameGrid();
         myTune.release();
         myTune=null;
     }

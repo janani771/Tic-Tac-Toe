@@ -17,6 +17,7 @@
     <string name="player_2">Player 2</string>
     <string name="quick_video">Quick Video</string>
     <string name="player_1_char_limit_10">Player 1 (char limit: 10)</string>
+    <string name="exit">exit</string>
 
 
 </resources>

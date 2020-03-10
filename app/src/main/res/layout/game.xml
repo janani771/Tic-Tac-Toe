@@ -189,6 +189,7 @@ x
             android:layout_alignParentTop="true"
             android:layout_marginStart="10dp"
             android:layout_marginTop="-2dp"
+            android:onClick="reset"
             android:text="@string/reset" />
 
         <Button
