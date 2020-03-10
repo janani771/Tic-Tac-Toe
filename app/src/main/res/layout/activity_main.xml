@@ -40,14 +40,13 @@
         android:layout_marginEnd="19dp"
         android:autofillHints=""
         android:ems="10"
-        android:hint="Player 1 (char limit: 10)"
+        android:hint="@string/player_1_char_limit_10"
         android:inputType="textPersonName"
         app:layout_constraintBottom_toTopOf="@+id/player2name"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="19dp" />
+        />
 
     <EditText
         android:id="@+id/player2name"
@@ -56,7 +55,7 @@
         android:layout_marginBottom="48dp"
         android:autofillHints=""
         android:ems="10"
-        android:hint="Player 2 (char limit: 10)"
+        android:hint="Player 2 (char limit:10)"
         android:inputType="textPersonName"
         android:maxLength="10"
         app:layout_constraintBottom_toTopOf="@+id/play"

@@ -4,79 +4,91 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/veryLightPurple">
+    android:background="@color/veryLightPurple"
+    tools:context=".MainActivity">
 
     <pl.droidsonroids.gif.GifImageView
         android:id="@+id/gifImageView"
-        android:layout_width="600dp"
-        android:layout_height="121dp"
-        android:layout_marginTop="28dp"
+        android:layout_width="555dp"
+        android:layout_height="88dp"
         android:src="@drawable/text"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.504"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/instruction"
-        android:layout_width="131dp"
-        android:layout_height="36dp"
+        android:layout_width="205dp"
+        android:layout_height="39dp"
+        android:layout_marginStart="225dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="186dp"
         android:text="@string/instructions"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.483"
+        app:layout_constraintHorizontal_bias="0.453"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/gifImageView" />
 
     <EditText
         android:id="@+id/player1name"
-        android:layout_width="432dp"
-        android:layout_height="59dp"
+        android:layout_width="378dp"
+        android:layout_height="71dp"
+        android:layout_marginStart="132dp"
+        android:layout_marginEnd="90dp"
         android:autofillHints=""
         android:ems="10"
-        android:hint="@string/player_1"
+        android:hint="@string/player_1_char_limit_10"
         android:inputType="textPersonName"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:maxLength="10"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.481"
+        app:layout_constraintHorizontal_bias="0.488"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.445" />
+        app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <EditText
         android:id="@+id/player2name"
-        android:layout_width="436dp"
-        android:layout_height="56dp"
-        android:layout_marginBottom="180dp"
+        android:layout_width="375dp"
+        android:layout_height="82dp"
+        android:layout_marginStart="132dp"
+        android:layout_marginEnd="93dp"
         android:autofillHints=""
         android:ems="10"
-        android:hint="player_2"
+        android:hint="Player 2 (char limit: 10)"
         android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/play"
+        android:maxLength="10"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.484"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/player1name" />
 
     <Button
         android:id="@+id/play"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="115dp"
+        android:layout_height="54dp"
+        android:layout_marginStart="259dp"
+        android:layout_marginEnd="217dp"
         android:layout_marginBottom="16dp"
         android:onClick="play"
         android:text="@string/play"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.45"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_width="404dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="117dp"
+        android:layout_marginEnd="79dp"
         android:fontFamily="casual"
         android:text="@string/enter_the_name_of_players"
-        android:textSize="24sp"
+        android:textSize="30sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.469"
+        app:layout_constraintHorizontal_bias="0.492"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/instruction" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
