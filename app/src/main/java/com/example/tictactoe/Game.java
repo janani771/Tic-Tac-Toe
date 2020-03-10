@@ -1,6 +1,4 @@
 package com.example.tictactoe;
-
-import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.graphics.Color;
 import android.media.MediaPlayer;
@@ -13,21 +11,15 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import androidx.appcompat.app.AppCompatActivity;
-
 import java.util.Random;
 
 public class Game extends AppCompatActivity implements View.OnClickListener {
 
-    private Button[][] buttons = new Button[3][3];
+    private final Button[][] buttons = new Button[3][3];
     private boolean playerOneActive = true;
     private int numOfCount;
-    MediaPlayer myTune;
-
-    //user input text//
-    private EditText playerOneName;
-    private EditText playerTwoName;
+    private MediaPlayer myTune;
 
     //default text//
     private TextView p1;
@@ -37,10 +29,11 @@ public class Game extends AppCompatActivity implements View.OnClickListener {
     private TextView score1;
     private TextView score2;
 
-    Toast toast;
+    private Toast toast;
 
     //defines the score class//
     private Scores scores;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,7 +42,7 @@ public class Game extends AppCompatActivity implements View.OnClickListener {
 
         scores = new Scores(this);
 
-        final Button reset = (Button) findViewById(R.id.resetGame);
+        final Button reset = findViewById(R.id.resetGame);
         reset.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -67,6 +60,7 @@ public class Game extends AppCompatActivity implements View.OnClickListener {
         p1 = findViewById(R.id.P1);
         p2 = findViewById(R.id.P2);
 
+        //If the user doesn't input anything, then the names are set to default//
         if(TextUtils.isEmpty(message) || message.equals("Player 2")|| message.equals("player 2") || message.equals("player2")||message.equals("Player Two") ||message.equals("Player two") ||message.equals("player two") ||message.equals("PLAYER TWO")||message.equals("playertwo")||message.equals("PLAYER two")){
             p1.setText(R.string.Player_1);
         }else{
@@ -78,6 +72,7 @@ public class Game extends AppCompatActivity implements View.OnClickListener {
             p2.setText( message2);
         }
 
+        //Give each button a respective position//
         buttons[0][0] = findViewById(R.id.button_00);
         buttons[0][1] = findViewById(R.id.button_01);
         buttons[0][2] = findViewById(R.id.button_02);
@@ -94,21 +89,25 @@ public class Game extends AppCompatActivity implements View.OnClickListener {
             }
         }
     }
+    //Plays the music when sound button is clicked//
     public void playIT(View view){
         myTune.start();
         myTune.setLooping(true);
         myTune.setVolume(5000f,5000f);
     }
+    //Pauses the music when mute button is clicked//
     public void mute(View view){
         if(myTune!=null){
             myTune.pause();
         }
     }
+    //Stops the music when the activity is on pause//
     @Override
     protected void onPause(){
         super.onPause();
         myTune.release();
     }
+    //When activity is on stop, the game data is reset//
     @Override
     protected void onStop(){
         super.onStop();
@@ -118,10 +117,12 @@ public class Game extends AppCompatActivity implements View.OnClickListener {
         myTune.release();
         myTune=null;
     }
+    //When quit button is pressed, displays the quit class activity//
     public void quit(View view){
         Intent quit = new Intent(this, Quit.class);
         startActivity(quit);
     }
+    //checks if the grid button is empty or contains text//
     @Override
     public void onClick(View v) {
         if (!((Button) v).getText().toString().equals("")) {
@@ -135,6 +136,7 @@ public class Game extends AppCompatActivity implements View.OnClickListener {
             ((Button) v).setText("O");
         }
         numOfCount++;
+        //When either player win, the game displays random win messages as toast accordingly//
         if (win()) {
              String[] randWinMess = new String[] {"Great work", "Keep it up","You got it",
                                             "Share you trick","Good job","Congratulations",
@@ -156,6 +158,7 @@ public class Game extends AppCompatActivity implements View.OnClickListener {
                 updateScore();
                 resetGameGrid();
             }
+            //when all buttons of grid if full and no winner, the game is tied//
             } else if(numOfCount==9){
                 gameIsDraw();
                 resetGameGrid();
@@ -163,26 +166,30 @@ public class Game extends AppCompatActivity implements View.OnClickListener {
                 playerOneActive = !playerOneActive;
             }
         }
+        //Draw message is displayed and game grid is reset//
         private void gameIsDraw(){
             toast = Toast.makeText(this,"It's a draw!", Toast.LENGTH_SHORT);
             toastLook();
             resetGameGrid();
         }
+        //custom appearance for toast messages//
         private void toastLook(){
             View view = toast.getView();
             view.setBackgroundColor(Color.MAGENTA);
             toast.setGravity(Gravity.CENTER_HORIZONTAL,0,0);
             toast.show();
          }
+         //the score is updated for every winner and every time game score is reset//
          private void updateScore(){
-        score1=(TextView) findViewById(R.id.score1);
+        score1= findViewById(R.id.score1);
         score1.setText(Integer.toString(scores.getPlayer1Score()));
 
-        score2=(TextView) findViewById(R.id.score2);
+        score2= findViewById(R.id.score2);
         score2.setText(Integer.toString(scores.getPlayer2Score()));
     }
 
-    public void resetGameGrid(){
+    //all the buttons of the grid cleared or emptied//
+    private void resetGameGrid(){
             for(int x = 0; x < 3; x++){
                 for(int y = 0; y <3; y++){
                     buttons[x][y].setText("");
@@ -191,8 +198,10 @@ public class Game extends AppCompatActivity implements View.OnClickListener {
             numOfCount = 0;
             playerOneActive = true;
     }
+    //checks whether there is a winner in vertical, horizontal or diagonal way with Xs and Os//
     private boolean win() {
         String[][] position = new String[3][3];
+        //gets the text of the button whether X or O//
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 3; j++) {
                 position[i][j] = buttons[i][j].getText().toString();
@@ -240,19 +249,15 @@ public class Game extends AppCompatActivity implements View.OnClickListener {
 
         //CHECKING FOR WIN DIAGONALLY//
         //first diagonal (left to right)//
-
         if (position[0][0].equals(position[1][1])
                 && position[0][0].equals(position[2][2])
                 && !position[0][0].equals("")) {
             return true;
         }
         //second diagonal (right to left)//
-        else if (position[0][2].equals(position[1][1])
+        else return position[0][2].equals(position[1][1])
                 && position[0][2].equals(position[2][0])
-                && !position[0][2].equals("")) {
-            return true;
-        }
-        return false;
+                && !position[0][2].equals("");
     }
 
 }

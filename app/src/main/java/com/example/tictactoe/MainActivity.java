@@ -1,7 +1,5 @@
 package com.example.tictactoe;
-
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -14,7 +12,6 @@ public class MainActivity extends AppCompatActivity {
     public  static final String EXTRA_MESSAGE2 = "com.example.tictactoe2.MESSAGE2";
     public static final String EXTRA_USER_POS = "pos_in_list";
     private Button instruction;
-    Button Exit;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Intent intent = getIntent();
 
-        instruction = (Button) findViewById(R.id.instruction);
+        instruction = findViewById(R.id.instruction);
         instruction.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -30,22 +27,21 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
-    public void instruction() {
+    //When instruction box is clicked, alert box with instructions appear//
+    private void instruction() {
         Instructions instruct = new Instructions();
         instruct.show(getSupportFragmentManager(), "instructions");
     }
-
+    //When play button is pressed, game class is display//
     public void play(View view) {
         Intent game = new Intent(this, Game.class);
 
-        EditText nameOne = (EditText) findViewById(R.id.player1name);
-        EditText nameTwo = (EditText) findViewById(R.id.player2name);
-
+        EditText nameOne = findViewById(R.id.player1name);
         String message = nameOne.getText().toString();
-        String message2 = nameTwo.getText().toString();
-
-
         game.putExtra(EXTRA_MESSAGE, message);
+
+        EditText nameTwo = findViewById(R.id.player2name);
+        String message2 = nameTwo.getText().toString();
         game.putExtra(EXTRA_MESSAGE2, message2);
 
         startActivity(game);
