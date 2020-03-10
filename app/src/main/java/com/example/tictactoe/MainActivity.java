@@ -14,13 +14,12 @@ public class MainActivity extends AppCompatActivity {
     public  static final String EXTRA_MESSAGE2 = "com.example.tictactoe2.MESSAGE2";
     public static final String EXTRA_USER_POS = "pos_in_list";
     private Button instruction;
-
+    Button Exit;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         Intent intent = getIntent();
 
         instruction = (Button) findViewById(R.id.instruction);

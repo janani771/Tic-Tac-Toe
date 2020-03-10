@@ -210,8 +210,8 @@
             android:layout_marginStart="120dp"
             android:layout_marginTop="-2dp"
             android:background="@drawable/speaker"
-            android:backgroundTint="#000000"
-            android:onClick="playIT" />
+            android:onClick="playIT"
+            />
 
         <Button
             android:id="@+id/mute"
@@ -221,7 +221,6 @@
             android:layout_marginStart="220dp"
             android:layout_marginTop="-2dp"
             android:background="@drawable/mute"
-            android:backgroundTint="#000000"
             android:onClick="mute" />
 
 

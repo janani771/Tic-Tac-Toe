@@ -16,4 +16,5 @@
     <string name="total_score">Total Score:</string>
     <string name="player_2">Player 2</string>
     <string name="quick_video">Quick Video</string>
+    <string name="exit">Exit</string>
 </resources>

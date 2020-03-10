@@ -6,7 +6,9 @@ import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -15,6 +17,7 @@ public class Quit extends AppCompatActivity {
     public static final String TAG = "quit";
 
     Scores scores;
+
     @Override
     protected void onCreate( Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,5 +44,4 @@ public class Quit extends AppCompatActivity {
             }
         });
     }
-
 }
