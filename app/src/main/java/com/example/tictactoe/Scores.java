@@ -2,13 +2,13 @@ package com.example.tictactoe;
 import android.content.Context;
 import android.content.SharedPreferences;
 
-class Scores {
+    public class Scores {
     private static final String P1_SCORE = "scoreOfPlayer1";
     private static final String P2_SCORE = "scoreOfPlayer2";
     private static final String PREF_FILE = "Scores";
 
-    private int player1Score;
-    private int player2Score;
+    public int player1Score;
+    public int player2Score;
 
     private final Context context;
     private final SharedPreferences myScores;

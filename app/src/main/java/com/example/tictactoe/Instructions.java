@@ -5,12 +5,10 @@ import android.app.Dialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatDialogFragment;
 
-class Instructions extends AppCompatDialogFragment {
+public class Instructions extends AppCompatDialogFragment {
     //creates an alert box with list of instructions//
-    @NonNull
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState){
         AlertDialog.Builder instruct = new AlertDialog.Builder(getActivity());
@@ -19,7 +17,6 @@ class Instructions extends AppCompatDialogFragment {
                 .setPositiveButton("Got it!", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
-
 
             }
         });

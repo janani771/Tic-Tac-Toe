@@ -190,10 +190,10 @@ public class Game extends AppCompatActivity implements View.OnClickListener {
          //the score is updated for every winner and every time game score is reset//
          private void updateScore(){
         score1= findViewById(R.id.score1);
-        score1.setText(Integer.toString(scores.getPlayer1Score()));
+        score1.setText(Integer.toString(scores.player1Score));
 
         score2= findViewById(R.id.score2);
-        score2.setText(Integer.toString(scores.getPlayer2Score()));
+        score2.setText(Integer.toString(scores.player2Score));
     }
     //all the buttons of the grid cleared or emptied//
     private void resetGameGrid(){
