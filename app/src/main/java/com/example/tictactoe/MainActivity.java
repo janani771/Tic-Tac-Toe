@@ -11,7 +11,7 @@ public class MainActivity extends AppCompatActivity {
     public static final String EXTRA_MESSAGE = "com.example.tictactoe2.MESSAGE";
     public  static final String EXTRA_MESSAGE2 = "com.example.tictactoe2.MESSAGE2";
     public static final String EXTRA_USER_POS = "pos_in_list";
-    private Button instruction;
+    public Button instruction;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
         });
     }
     //When instruction box is clicked, alert box with instructions appear//
-    private void instruction() {
+    public void instruction() {
         Instructions instruct = new Instructions();
         instruct.show(getSupportFragmentManager(), "instructions");
     }

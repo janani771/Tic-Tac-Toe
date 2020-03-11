@@ -8,7 +8,7 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatDialogFragment;
 
-class Instructions extends AppCompatDialogFragment {
+public class Instructions extends AppCompatDialogFragment {
     //creates an alert box with list of instructions//
     @NonNull
     @Override
