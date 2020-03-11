@@ -1,6 +1,5 @@
 package com.example.tictactoe;
 import android.content.Intent;
-import android.graphics.Color;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.text.TextUtils;
@@ -8,7 +7,6 @@ import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
@@ -34,6 +32,10 @@ public class Game extends AppCompatActivity implements View.OnClickListener {
     //defines the score class//
     private Scores scores;
 
+    //defines the color class//
+    private Colors color;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,12 +43,14 @@ public class Game extends AppCompatActivity implements View.OnClickListener {
         myTune = MediaPlayer.create(this,R.raw.sample);
 
         scores = new Scores(this);
+        color = new Colors();
 
         final Button reset = findViewById(R.id.resetGame);
         reset.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Log.d("GAME","reset clicked?" );
+                resetGridColor();
                 scores.resetScore();
                 updateScore();
                 resetGameGrid();
@@ -124,16 +128,18 @@ public class Game extends AppCompatActivity implements View.OnClickListener {
     }
     //checks if the grid button is empty or contains text//
     @Override
-    public void onClick(View v) {
-        if (!((Button) v).getText().toString().equals("")) {
+    public void onClick(View grid) {
+        if (!((Button) grid).getText().toString().equals("")) {
             return;
         }
         if (playerOneActive) {
             p1.requestFocus();
-            ((Button) v).setText("X");
+            ((Button) grid).setText("X");
+            ((Button) grid).setBackgroundColor(color.randomColorLight());
         } else {
             p2.requestFocus();
-            ((Button) v).setText("O");
+            ((Button) grid).setText("O");
+            ((Button) grid).setBackgroundColor(color.randomColorLight());
         }
         numOfCount++;
         //When either player win, the game displays random win messages as toast accordingly//
@@ -166,6 +172,7 @@ public class Game extends AppCompatActivity implements View.OnClickListener {
                 playerOneActive = !playerOneActive;
             }
         }
+
         //Draw message is displayed and game grid is reset//
         private void gameIsDraw(){
             toast = Toast.makeText(this,"It's a draw!", Toast.LENGTH_SHORT);
@@ -175,8 +182,8 @@ public class Game extends AppCompatActivity implements View.OnClickListener {
         //custom appearance for toast messages//
         private void toastLook(){
             View view = toast.getView();
-            view.setBackgroundColor(Color.MAGENTA);
-            toast.setGravity(Gravity.CENTER_HORIZONTAL,0,0);
+            view.setBackgroundColor(color.randomColorDark());
+            toast.setGravity(Gravity.TOP|Gravity.CENTER_HORIZONTAL|Gravity.LEFT,397,330);
             toast.show();
          }
          //the score is updated for every winner and every time game score is reset//
@@ -187,7 +194,6 @@ public class Game extends AppCompatActivity implements View.OnClickListener {
         score2= findViewById(R.id.score2);
         score2.setText(Integer.toString(scores.getPlayer2Score()));
     }
-
     //all the buttons of the grid cleared or emptied//
     private void resetGameGrid(){
             for(int x = 0; x < 3; x++){
@@ -197,6 +203,13 @@ public class Game extends AppCompatActivity implements View.OnClickListener {
             }
             numOfCount = 0;
             playerOneActive = true;
+    }
+    private void resetGridColor(){
+        for(int x = 0; x < 3; x++){
+            for(int y = 0; y <3; y++){
+                buttons[x][y].setBackgroundResource(R.drawable.grid);
+            }
+        }
     }
     //checks whether there is a winner in vertical, horizontal or diagonal way with Xs and Os//
     private boolean win() {

@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
-    android:background="@color/veryLightPurple"
+    android:background="@color/background"
     tools:context=".MainActivity">
 
     <pl.droidsonroids.gif.GifImageView
@@ -82,6 +82,7 @@
         android:layout_marginTop="28dp"
         android:fontFamily="casual"
         android:text="@string/enter_the_name_of_players"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"

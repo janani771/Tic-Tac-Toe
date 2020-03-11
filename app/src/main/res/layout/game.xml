@@ -12,20 +12,20 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
+
         <TextView
             android:id="@+id/colon1"
             android:layout_width="wrap_content"
             android:layout_height="46dp"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
-            android:layout_marginStart="162dp"
-            android:layout_marginTop="-14dp"
+            android:layout_marginStart="161dp"
+            android:layout_marginTop="-13dp"
             android:fontFamily="casual"
             android:text="@string/colon1"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
             android:textSize="30sp"
             android:textStyle="bold" />
-
 
         <TextView
             android:id="@+id/colon2"
@@ -33,7 +33,7 @@
             android:layout_height="46dp"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
-            android:layout_marginStart="368dp"
+            android:layout_marginStart="378dp"
             android:layout_marginTop="-14dp"
             android:fontFamily="casual"
             android:text="@string/colon2"
@@ -43,10 +43,10 @@
 
         <TextView
             android:id="@+id/P2"
-            android:layout_width="160dp"
-            android:layout_height="43dp"
+            android:layout_width="163dp"
+            android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
-            android:layout_marginStart="208dp"
+            android:layout_marginStart="214dp"
             android:layout_marginBottom="3dp"
             android:text="@string/player_2"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
@@ -60,8 +60,8 @@
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
-            android:layout_marginStart="375dp"
-            android:layout_marginTop="0dp"
+            android:layout_marginStart="386dp"
+            android:layout_marginTop="-2dp"
             android:fontFamily="casual"
             android:text="@string/_0"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
@@ -71,7 +71,7 @@
         <TextView
             android:id="@+id/P1"
             android:layout_width="160dp"
-            android:layout_height="43dp"
+            android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
             android:layout_marginStart="1dp"
             android:layout_marginBottom="3dp"
@@ -88,8 +88,8 @@
             android:layout_height="46dp"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
-            android:layout_marginStart="169dp"
-            android:layout_marginTop="-4dp"
+            android:layout_marginStart="170dp"
+            android:layout_marginTop="0dp"
             android:fontFamily="casual"
             android:text="@string/_0"
             android:textAppearance="@style/TextAppearance.AppCompat.Large"
@@ -104,10 +104,10 @@
         android:layout_height="0dp"
         android:layout_weight="1"
         android:orientation="vertical"
+        android:paddingLeft="20dp"
         android:paddingTop="45dp"
-        android:paddingBottom="45dp"
         android:paddingRight="20dp"
-        android:paddingLeft="20dp">
+        android:paddingBottom="45dp">
 
         <LinearLayout
             style="?android:attr/buttonBarStyle"
@@ -135,7 +135,8 @@
                 android:layout_weight="1"
                 android:background="@drawable/grid"
                 android:textSize="50sp" />
-x
+
+
             <Button
 
                 android:id="@+id/button_02"
@@ -220,7 +221,7 @@ x
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        >
+        android:clickable="false">
 
         <Button
             android:id="@+id/resetGame"
@@ -238,7 +239,6 @@ x
             android:layout_alignParentEnd="true"
             android:layout_marginStart="220dp"
             android:layout_marginEnd="5sp"
-            android:layout_toEndOf="@+id/resetGame"
             android:onClick="quit"
             android:text="@string/quit" />
 
@@ -247,7 +247,7 @@ x
             android:layout_width="42dp"
             android:layout_height="35dp"
             android:layout_alignParentTop="true"
-            android:layout_marginStart="120dp"
+            android:layout_marginStart="140dp"
             android:layout_marginTop="4dp"
             android:background="@drawable/speaker"
             android:onClick="playIT" />
@@ -257,7 +257,7 @@ x
             android:layout_width="42dp"
             android:layout_height="35dp"
             android:layout_alignParentTop="true"
-            android:layout_marginStart="220dp"
+            android:layout_marginStart="275dp"
             android:layout_marginTop="5dp"
             android:background="@drawable/mute"
             android:backgroundTintMode="screen"

@@ -27,6 +27,7 @@
     <string name="player_2_char_limit_10">Player 2 (char limit:10)</string>
     <string name="_">player_2_char_limit_10</string>
     <string name="player_2_char_limit_10_">Player 2 (char limit: 10)</string>
+    <string name="change_color">Change Color</string>
 
 
 </resources>
