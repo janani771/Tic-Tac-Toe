@@ -175,7 +175,7 @@ public class Game extends AppCompatActivity implements View.OnClickListener {
 
         //Draw message is displayed and game grid is reset//
         private void gameIsDraw(){
-            toast = Toast.makeText(this,"It's a draw!", Toast.LENGTH_SHORT);
+            toast = Toast.makeText(this,"The game is a draw!", Toast.LENGTH_SHORT);
             toastLook();
             resetGameGrid();
         }
@@ -183,8 +183,9 @@ public class Game extends AppCompatActivity implements View.OnClickListener {
         private void toastLook(){
             View view = toast.getView();
             view.setBackgroundColor(color.randomColorDark());
-            toast.setGravity(Gravity.TOP|Gravity.CENTER_HORIZONTAL|Gravity.LEFT,397,330);
+            toast.setGravity(Gravity.TOP|Gravity.CENTER_HORIZONTAL|Gravity.START,397,330);
             toast.show();
+            resetGridColor();
          }
          //the score is updated for every winner and every time game score is reset//
          private void updateScore(){
